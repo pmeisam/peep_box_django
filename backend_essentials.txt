@@ -1,0 +1,22 @@
+1- to start a django project = $ django-admin startproject catcollector
+
+2- to create the main_app module = $ python3 manage.py startapp main_app
+
+3- include main_app in INSTALLED_APPS in settings.py
+
+4- to run the server $ python3 manage.py runserver and navigate to localhost:8000
+
+5- to create database $ createdb catcollector
+A Django project's configuration lives in settings.py. Let's update it to use our catcollector database:
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'catcollector',
+    }
+}
+
+6- Now let's test our database connection by getting rid of the red unapplied migration message:
+$ python3 manage.py migrate
+
+7-  
