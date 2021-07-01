@@ -68,7 +68,7 @@
                     {% else %}
                         Age: Kitten
                     {% endif %} </p>
-                <a href="/movies/{{movie.id}}" class="btn btn-primary">Watch</a>
+                <a href="{% url 'details' movie.id %}" class="btn btn-primary">Watch</a>
                 </div>
             </div>
         {% endfor %}
@@ -80,22 +80,22 @@
 <!-- TV Series -->
 <div class="container">
     <div class="row justify-content-md-center">
-        {% for movie in movies %}
+        {% for series in tvSeries %}
             <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{movie.image}}" alt="Card image cap">
+                <img class="card-img-top" src="{{series.image}}" alt="Card image cap">
                 <div class="card-body">
-                <h5 class="card-title">{{ movie.name }}</h5>
+                <h5 class="card-title">{{ series.name }}</h5>
                 <p class="card-text">
-                    Genre: {{ movie.genre }}
+                    Genre: {{ series.genre }}
                     <br>
-                    Description: {{ movie.description }}  
+                    Description: {{ series.description }}  
                     <br>
-                    {% if movie.cast %}
-                        Cast: {{ movie.cast }}
+                    {% if series.cast %}
+                        Cast: {{ series.cast }}
                     {% else %}
-                        Age: Kitten
+                        
                     {% endif %} </p>
-                <a href="#" class="btn btn-primary">Watch</a>
+                <a href="{% url 'series_details' series.id %}" class="btn btn-primary">Watch</a>
                 </div>
             </div>
         {% endfor %}
@@ -104,30 +104,5 @@
 <a href="#">More TV series...</a>
 <hr>
 
-<!-- Shows -->
-<div class="container">
-    <div class="row justify-content-md-center">
-        {% for movie in movies %}
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{movie.image}}" alt="Card image cap">
-                <div class="card-body">
-                <h5 class="card-title">{{ movie.name }}</h5>
-                <p class="card-text">
-                    Genre: {{ movie.genre }}
-                    <br>
-                    Description: {{ movie.description }}  
-                    <br>
-                    {% if movie.cast %}
-                        Cast: {{ movie.cast }}
-                    {% else %}
-                        Age: Kitten
-                    {% endif %} </p>
-                <a href="/movies/{{movie.id}}" class="btn btn-primary">Watch</a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-<a href="#">More shows...</a>
 
 {% endblock %}

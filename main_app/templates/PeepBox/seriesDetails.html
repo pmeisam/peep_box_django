@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>{{series.name}}</h1>
+    <hr />  
+    
+    <div class="container">
+        <div class="row justify-content-md-center">
+            {% for episode in series.episode_set.all %}                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="{{episode.image}}" alt="Card image cap">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ episode.name }}</h5>
+                    <p class="card-text">
+                        Genre: {{ episode.genre }}
+                        <br>
+                        Description: {{ episode.description }}  
+                        <br>
+                        {% if episode.cast %}
+                            Cast: {{ episode.cast }}
+                        {% else %}
+                            no cast
+                        {% endif %} </p>
+                    <a href="{% url 'episode_details' episode.name episode.id %}" class="btn btn-primary">Watch</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+     
+{% endblock %}

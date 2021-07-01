@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>{{episode.name}}</h1>
+    <hr />  
+    <video width="640" height="480" poster="{{episode.image}}" controls>
+        <source src="{{episode.video_link}}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <hr />
+    <p>{{episode.video_link}}</p>
+     
+{% endblock %}
